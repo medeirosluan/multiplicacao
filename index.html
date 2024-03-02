@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Conversao</h2>
+        <input type="number" name="real" id="real">
+        <input type="button" value="converte" onclick="conversao()">
+        <p id="mensagem"></p>
+
+    </div>
+
+    <script>
+        function conversao(){
+            var real = document.getElementById('real').value;
+            var mensagem = document.getElementById('mensagem')
+            var valorDolar = 4.96
+            var resultado  = real * valorDolar
+            mensagem.innerHTML = `USD: ${resultado}`
+        }
+    </script>
+</body>
+</html>
