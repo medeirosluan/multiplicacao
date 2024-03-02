@@ -4,23 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+     body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: ;
+     }
+
+     #container{
+       
+        display: flex;
+        flex-direction: column;
+        padding: 80px 40px;
+    
+     }
+
+     #real{
+        padding: 10px;
+        margin-bottom: 10px;
+        outline: none;
+     }
+
+     h2{
+        text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+     }
+
+     #btn{
+        padding: 6px;
+     }
+     #msg{
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+     }
+
+    </style>
 </head>
 <body>
-    <div class="container">
+    <div id="container">
         <h2>Conversao</h2>
-        <input type="number" name="real" id="real">
-        <input type="button" value="converte" onclick="conversao()">
-        <p id="mensagem"></p>
-
+        <input type="number" name="real" id="real" placeholder="Valor atual do dolar 4.96">
+        <input type="button" value="Converte" onclick="converte()" id="btn">
+        <p id="msg"></p>
     </div>
 
     <script>
-        function conversao(){
-            var real = document.getElementById('real').value;
-            var mensagem = document.getElementById('mensagem')
-            var valorDolar = 4.96
-            var resultado  = real * valorDolar
-            mensagem.innerHTML = `USD: ${resultado}`
+        function converte(){
+
+            let valorReal = parseFloat(document.querySelector('#real').value)
+            let msg = document.querySelector('#msg')
+            let valorDolar = 4.95
+            let resultado = valorReal * valorDolar 
+
+            if (isNaN(valorReal)) {
+                msg.innerHTML = 'Por, favor digite um numero'
+                msg.style.color = 'red'
+            } 
+
+            else{
+
+                msg.innerHTML = `USD: <strong>${resultado.toFixed(2)}</strong>`
+                msg.style.color = 'green'
+
+            }
+            
+            
         }
     </script>
 </body>
