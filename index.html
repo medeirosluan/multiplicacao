@@ -3,86 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+    <title>Multiplicando</title>
     <style>
+      
+      
         *{
-            padding: 0;
             margin: 0;
+            padding: 0;
             box-sizing: border-box;
+            font-family: "Madimi One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
         }
-     body{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        background-color: black;
-     }
 
-     #container{
-        display: flex;
-        flex-direction: column;
-        
+        body{
+            font-weight: 400;
+            font-style: normal;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+           background-image: linear-gradient(45deg,#047aa8,#023373);
+       
+           
 
-    
-     }
+        }
 
-     #real{
-        padding: 10px;
-        margin-bottom: 10px;
-        outline: none;
-     }
+        div.container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 4px solid #47f1dbfa;
+            border-radius: 15px;
+            padding: 80px 40px;
+        }
 
-     h2{
-        color: white;
-        margin-bottom: 10px;
-        text-align: center;
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-     }
+        h2{
+            margin-bottom: 19px;
+            text-align: center;
+            font-weight: 400;
+            font-style: normal;
+            color: rgb(255, 255, 255);
+        }
 
-     #btn{
-        padding: 6px;
-     }
+        input#primeiroValor,input#segundoValor{
+            text-align: center;
+            margin-bottom: 16px;
+            padding: 10px;
+            outline: none;
+            border: none;
+            background-color: #47f1da79;
+            border-radius: 12px;
+        }
 
-     #msg{
-        font-size: 14px;
-        margin: 0;
-        text-align: center;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        input#btn{
+            margin: auto;
+            width: 100px;
+            padding: 6px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            background-color: #47f1dbfa;
+            font-weight: 400;
+            font-style: normal;
+        }
 
-     }
+        p#msg{
+            margin-top: 10px;
+            text-align: center;
+            font-family: "Madimi One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+
+        }
+        ::placeholder{
+            font-family: "Madimi One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
 
     </style>
 </head>
 <body>
-    <div id="container">
-        <h2>Conversao</h2>
-        <input type="number" name="real" id="real" placeholder="Valor atual do dolar 4.96">
-        <input type="button" value="Converte" onclick="converte()" id="btn">
+
+    <div class="container">
+        <h2>Multiplicando</h2>
+        <input type="number" name="primeiroValor" id="primeiroValor" placeholder="Digite primeiro valor">
+        <input type="number" name="segundoValor" id="segundoValor" placeholder="Digite segundo valor">
+        <input type="button" value="Resolver" id="btn" onclick="multi()">
         <p id="msg"></p>
     </div>
-
     <script>
-        function converte(){
-
-            let valorReal = parseFloat(document.querySelector('#real').value)
+        function multi(){
+            let priNumero = Number.parseInt(document.querySelector('#primeiroValor').value)
+            let segValor = Number.parseInt(document.querySelector('#segundoValor').value)
             let msg = document.querySelector('#msg')
-            let valorDolar = 4.95
-            let resultado = valorReal * valorDolar 
-
-            if (isNaN(valorReal)) {
-                msg.innerHTML = 'Por, favor digite um numero'
+            let resultado = priNumero * segValor
+            
+            if (isNaN(priNumero)) {
+                msg.innerHTML = 'valor invalido'
                 msg.style.color = 'red'
             } 
-
-            else{
-
-                msg.innerHTML = `USD: <strong>${resultado.toFixed(2)}</strong>`
-                msg.style.color = 'green'
-
+            else {
+                msg.innerHTML =`Resultado: <strong>${resultado}</strong>`
+                msg.style.color ='white'
+                
             }
-            
-            
+
         }
+        
     </script>
+
+
 </body>
 </html>
