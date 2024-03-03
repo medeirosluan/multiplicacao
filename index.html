@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="./img/calculadora.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
     <title>Multiplicando</title>
     <style>
@@ -69,6 +70,7 @@
             background-color: #47f1dbfa;
             font-weight: 400;
             font-style: normal;
+            
         }
 
         p#msg{
@@ -77,12 +79,13 @@
             font-family: "Madimi One", sans-serif;
             font-weight: 400;
             font-style: normal;
-
         }
+        
         ::placeholder{
             font-family: "Madimi One", sans-serif;
             font-weight: 400;
             font-style: normal;
+          
         }
 
     </style>
@@ -98,19 +101,18 @@
     </div>
     <script>
         function multi(){
-            let priNumero = Number.parseInt(document.querySelector('#primeiroValor').value)
-            let segValor = Number.parseInt(document.querySelector('#segundoValor').value)
+            let priNumero = Number.parseFloat(document.querySelector('#primeiroValor').value)
+            let segValor = Number.parseFloat(document.querySelector('#segundoValor').value)
             let msg = document.querySelector('#msg')
             let resultado = priNumero * segValor
             
             if (isNaN(priNumero)) {
-                msg.innerHTML = 'valor invalido'
+                msg.innerHTML = 'Valor invalido'
                 msg.style.color = 'red'
             } 
             else {
-                msg.innerHTML =`Resultado: <strong>${resultado}</strong>`
+                msg.innerHTML =`Resultado: <strong>${resultado.toFixed(2)}</strong>`
                 msg.style.color ='white'
-                
             }
 
         }
